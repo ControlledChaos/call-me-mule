@@ -7,37 +7,26 @@
  * @since      3.0.0
  */
 
-// Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) exit;
+ // Conditional navigation theme location.
+if ( is_front_page() ) {
+	$main_menu = 'main-front';
+} else {
+	$main_menu = 'main';
+}
 
 ?>
 <nav class="nav nav-scroll" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	<div class="wrapper">
-		<p id="menu-toggle" class="menu-toggle"><a><span class="screen-reader-text">Menu</span></a></p>
-		<?php
-		if ( is_front_page() ) {
-		wp_nav_menu(
-			array( 
-				'theme_location'  => 'main-front',
+		<p id="menu-toggle" class="menu-toggle"><a><span class="not__screen-reader-text"><?php _e( 'Menu', 'call-me-mule' ); ?></span></a></p>
+		<?php wp_nav_menu(
+			[
+				'theme_location'  => $main_menu,
 				'container_id'    => 'main-menu',
 				'container_class' => 'main-menu',
 				'menu_id'         => 'main-menu-list',
 				'menu_class'      => 'main-menu-list',
 				'fallback_cb'     => false
-			)
-		);
-	} else {
-		wp_nav_menu(
-			array( 
-				'theme_location'  => 'main',
-				'container_id'    => 'main-menu',
-				'container_class' => 'main-menu',
-				'menu_id'         => 'main-menu-list',
-				'menu_class'      => 'main-menu-list',
-				'fallback_cb'     => false
-			)
-		);
-	}
-		?>
+			]
+		); ?>
 	</div>
 </nav>

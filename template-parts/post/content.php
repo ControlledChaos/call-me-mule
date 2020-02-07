@@ -26,7 +26,7 @@ if ( is_singular( 'snippets' ) ) {
 	</header>
 
 	<?php if ( is_home() ) : ?>
-		<p><small><?php comments_popup_link( __( 'Be the first to comment', 'mule-theme' ), __( '1 Comment', 'mule-theme' ), __( '% Comments', 'mule-theme' ), 'comments-link', '' ); ?></small></p>
+		<p><small><?php comments_popup_link( __( 'Be the first to comment', 'call-me-mule' ), __( '1 Comment', 'call-me-mule' ), __( '% Comments', 'call-me-mule' ), 'comments-link', '' ); ?></small></p>
 	<?php endif; ?>
 
 	<div class="entry-content" itemprop="articleBody">
@@ -36,9 +36,9 @@ if ( is_singular( 'snippets' ) ) {
 	<?php if ( is_singular() ) {
 		the_post_navigation(
 			[
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next post:', 'mule-theme' ) . '</span>' .
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next post:', 'call-me-mule' ) . '</span>' .
 					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous post:', 'mule-theme' ) . '</span>' .
+				'prev_text' => '<span class="screen-reader-text">' . __( 'Previous post:', 'call-me-mule' ) . '</span>' .
 					'<span class="post-title">%title</span>',
 			]
 		);

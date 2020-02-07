@@ -3,13 +3,6 @@
  */
 
 /*
- * Fade out loading screen
- */
-jQuery(window).load(function() {
-  jQuery( '.page-loader' ).fadeOut( 350 );
-});
-
-/*
  * Tooltipster
  */
 jQuery(document).ready(function() {

@@ -14,18 +14,21 @@ get_header(); ?>
 			$video_title = get_field( 'featured_video_title' );
 			if ( $video_title ) { echo '<h3 class="featured-video-title">' . $video_title . '</h3>'; }
 		?>
-		<?php the_field( 'featured_video' );
+		<div class="featured-video">
+			<?php the_field( 'featured_video' ); ?>
+		</div>
+		<?php
 		$donate_button  = get_field( 'mule_donate_button' );
 		$donate_message = get_field( 'mule_donate_message' );
 		if ( $donate_button ) {
 			$button = $donate_button;
 		} else {
-			$button = __( 'Support the Film', 'mule-theme' );
+			$button = __( 'Support the Film', 'call-me-mule' );
 		}
 		if ( $donate_message ) {
 			$message = $donate_message;
 		} else {
-			$message = __( 'Please be a part of the team that helps complete the documentary with your tax-deductible donation.', 'mule-theme' );
+			$message = __( 'Please be a part of the team that helps complete the documentary with your tax-deductible donation.', 'call-me-mule' );
 		}
 		?>
 		<h3 class="featured-video-donate"><a href="#support-front"><?php echo $button; ?></a></h3>
@@ -35,7 +38,8 @@ get_header(); ?>
 
 <article class="entry front-page-content" id="film-front">
 	<header>
-		<h2><?php _e( 'The Film', 'mule-theme' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'The Film', 'call-me-mule' ); ?></h2>
+		<img src="<?php echo get_theme_file_uri( '/assets/images/the-film.png' ); ?>" alt="">
 	</header>
 	<div class="wrapper">
 		<?php echo apply_filters( 'the_content', get_post_field( 'post_content', 33 ) ); ?>
@@ -44,7 +48,8 @@ get_header(); ?>
 
 <article class="entry front-page-content" id="filmmaker-front">
 	<header>
-		<h2><?php _e( 'The Filmmaker', 'mule-theme' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'The Filmmaker', 'call-me-mule' ); ?></h2>
+		<img src="<?php echo get_theme_file_uri( '/assets/images/the-filmmaker.png' ); ?>" alt="">
 	</header>
 
 	<div class="wrapper">
@@ -54,7 +59,8 @@ get_header(); ?>
 
 <article class="entry front-page-content" id="support-front">
 	<header>
-		<h2><?php echo apply_filters( 'the_title', get_post_field( 'post_title', 39 ) ); ?></h2>
+		<h2 class="screen-reader-text"><?php echo apply_filters( 'the_title', get_post_field( 'post_title', 39 ) ); ?></h2>
+		<img src="<?php echo get_theme_file_uri( '/assets/images/support-the-film.png' ); ?>" alt="">
 	</header>
 
 	<div class="wrapper">

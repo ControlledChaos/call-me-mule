@@ -15,13 +15,13 @@ get_header(); ?>
 		<header class="archive-title">
 	 	<?php
 			if ( is_day() ) {
-				echo '<h1>' . __( 'Archive for ', 'mule-theme' ) . get_the_time( 'F jS, Y' ) . '</h1>';
+				echo '<h1>' . __( 'Archive for ', 'call-me-mule' ) . get_the_time( 'F jS, Y' ) . '</h1>';
 			} elseif ( is_month() ) {
-				echo '<h1>' . __( 'Archive for ', 'mule-theme' ); single_month_title( ' ', true ); echo '</h1>';
+				echo '<h1>' . __( 'Archive for ', 'call-me-mule' ); single_month_title( ' ', true ); echo '</h1>';
 			} elseif ( is_year() ) {
-				echo '<h1>' . __( 'Archive for ', 'mule-theme' ) . get_the_time('Y') . '</h1>';
+				echo '<h1>' . __( 'Archive for ', 'call-me-mule' ) . get_the_time('Y') . '</h1>';
 			} elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) {
-				echo '<h1>' . __( 'Blog Archives', 'mule-theme' ) . '</h1>';
+				echo '<h1>' . __( 'Blog Archives', 'call-me-mule' ) . '</h1>';
 			} else {
 				the_archive_title( '<h1>', '</h1>' );
 			}
@@ -38,8 +38,8 @@ get_header(); ?>
 			if ( is_post_type_archive( 'snippets' ) ) { ?>
 				<?php if ( is_paged() ) { ?>
 				<nav class="nav-links">
-					<span class="nav-previous" rel="prev"><?php previous_posts_link( __( 'Previous Page', 'mule-theme' ) ); ?></span>
-					<span class="nav-next" rel="next"><?php next_posts_link( __( 'Next Page', 'mule-theme' ) ); ?></span>
+					<span class="nav-previous" rel="prev"><?php previous_posts_link( __( 'Previous Page', 'call-me-mule' ) ); ?></span>
+					<span class="nav-next" rel="next"><?php next_posts_link( __( 'Next Page', 'call-me-mule' ) ); ?></span>
 				</nav>
 				<?php } ?>
 				<?php if ( $intro && ! is_paged() ) {
@@ -68,8 +68,8 @@ get_header(); ?>
 			get_template_part( 'template-parts/post/content', 'none' );
 		} ?>
 		<nav class="nav-links">
-			<span class="nav-previous" rel="prev"><?php previous_posts_link( __( 'Previous Page', 'mule-theme' ) ); ?></span>
-			<span class="nav-next" rel="next"><?php next_posts_link( __( 'Next Page', 'mule-theme' ) ); ?></span>
+			<span class="nav-previous" rel="prev"><?php previous_posts_link( __( 'Previous Page', 'call-me-mule' ) ); ?></span>
+			<span class="nav-next" rel="next"><?php next_posts_link( __( 'Next Page', 'call-me-mule' ) ); ?></span>
 		</nav>
 	</main>
 

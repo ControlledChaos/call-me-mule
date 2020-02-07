@@ -1,0 +1,88 @@
+/**
+ * Header
+ */
+
+.header {
+    position: relative;
+    background: #111;
+}
+
+.site-title,
+.site-description {
+    margin: 0;
+    color: #fff;
+}
+
+.intro-image.front {
+    display: block;
+	position: relative;
+
+	img {
+		display: block;
+	}
+}
+
+.intro-title {
+    z-index: 20;
+    background-image: url(../images/blue-sky-light.jpg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: cover;
+	line-height: 1;
+
+	&.front {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+
+		.wrapper {
+			height: 40%;
+			padding: 0 3rem;
+		}
+
+		.site-title,
+		.site-description {
+			text-align: center;
+		}
+
+		.site-title {
+			font-size: 30vw;
+		}
+
+		.site-description {
+			font-size: 6.8vw;
+		}
+	}
+
+	.wrapper {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		   -moz-box-orient: vertical;
+		   -moz-box-direction: normal;
+			-ms-flex-direction: column;
+				flex-direction: column;
+		-webkit-box-pack: center;
+		   -moz-box-pack: center;
+			-ms-flex-pack: center;
+				justify-content: center;
+		-webkit-box-align: center;
+		   -moz-box-align: center;
+			-ms-flex-align: center;
+				align-items: center;
+		max-width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 6rem 3rem 3rem
+	}
+
+	img {
+		margin-top: 1em;
+	}
+}

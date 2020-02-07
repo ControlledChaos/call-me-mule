@@ -6,7 +6,7 @@
  * @subpackage Call_Me_Mule
  * @author     Greg Sweet <greg@ccdzine.com>
  * @copyright  Copyright (c) 2017 - 2018, Greg Sweet
- * @link       https://github.com/ControlledChaos/mule-theme
+ * @link       https://github.com/ControlledChaos/call-me-mule
  * @license    http://www.gnu.org/licenses/gpl-3.0.html
  * @since      3.0.0
  */
@@ -110,6 +110,9 @@ final class Functions {
 		// Modify the archive title.
 		add_filter( 'get_the_archive_title', [ $this, 'archive_title' ] );
 
+		// Remove Contact Form 7 scripts and styles.
+		add_action( 'after_setup_theme', [ $this, 'remove_cf7_scripts' ] );
+
 	}
 
 	/**
@@ -139,7 +142,7 @@ final class Functions {
 		 *
 		 * @since 3.0.0
 		 */
-		load_theme_textdomain( 'mule-theme', get_theme_file_uri( '/inc/languages' ) );
+		load_theme_textdomain( 'call-me-mule', get_theme_file_uri( '/inc/languages' ) );
 
 		/**
 		 * Add theme support.
@@ -199,12 +202,17 @@ final class Functions {
 		update_option( 'large_size_h', 720 );
 		update_option( 'large_crop', 1 );
 
-		add_image_size( 'header-large', 2048, 1379, true );
-		add_image_size( 'header-med', 1024, 690, true );
-		add_image_size( 'header-small', 640, 431, true );
-		add_image_size( 'tagline-large', 2048, 714, true );
-		add_image_size( 'tagline-med', 1024, 357, true );
-		add_image_size( 'tagline-small', 640, 223, true );
+		// 16:9 HD Video.
+		add_image_size( __( 'full-video', 'bs-theme' ), 2048, 1152, true );
+		add_image_size( __( 'large-video', 'bs-theme' ), 1280, 720, true );
+		add_image_size( __( 'medium-video', 'bs-theme' ), 960, 540, true );
+		add_image_size( __( 'small-video', 'bs-theme' ), 640, 360, true );
+
+		// 21:9 Cinemascope.
+		add_image_size( __( 'large-banner', 'bs-theme' ), 1280, 549, true );
+		add_image_size( __( 'medium-banner', 'bs-theme' ), 960, 411, true );
+		add_image_size( __( 'small-banner', 'bs-theme' ), 640, 274, true );
+
 		add_image_size( 'full-width', 1280, 549, true );
 
 		/**
@@ -224,11 +232,11 @@ final class Functions {
 		 */
 		register_nav_menus(
 			[
-				'main'       => __( 'Main Menu', 'mule-theme' ),
-				'main-front' => __( 'Front Page Menu', 'mule-theme' ),
-				'snippets'   => __( 'Snippets Menu', 'mule-theme' ),
-				'footer'     => __( 'Footer Menu', 'mule-theme' ),
-				'social'     => __( 'Social Menu', 'mule-theme' )
+				'main'       => __( 'Main Menu', 'call-me-mule' ),
+				'main-front' => __( 'Front Page Menu', 'call-me-mule' ),
+				'snippets'   => __( 'Snippets Menu', 'call-me-mule' ),
+				'footer'     => __( 'Footer Menu', 'call-me-mule' ),
+				'social'     => __( 'Social Menu', 'call-me-mule' )
 			]
 		);
 /**
@@ -348,10 +356,7 @@ final class Functions {
 	public function frontend_styles() {
 
 		// Theme sylesheet.
-		wp_enqueue_style( 'mule-style', get_parent_theme_file_uri( 'style.min.css' ), [], '', 'screen' );
-
-		// Get Google fonts.
-		wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i', [], '', 'screen' );
+		wp_enqueue_style( 'call-me-mule', get_parent_theme_file_uri( '/assets/css/style.min.css' ), [], '', 'screen' );
 
 	}
 
@@ -501,11 +506,11 @@ final class Functions {
 		global $_wp_additional_image_sizes;
 
 		$size_names = [
-			'thumbnail'  => __( 'Thumbnail', 'mule-theme' ),
-			'medium'     => __( 'Medium', 'mule-theme' ),
-			'large'      => __( 'Large', 'mule-theme' ),
-			'full-width' => __( 'Full Width', 'mule-theme' ),
-			'full'       => __( 'Full', 'mule-theme' )
+			'thumbnail'  => __( 'Thumbnail', 'call-me-mule' ),
+			'medium'     => __( 'Medium', 'call-me-mule' ),
+			'large'      => __( 'Large', 'call-me-mule' ),
+			'full-width' => __( 'Full Width', 'call-me-mule' ),
+			'full'       => __( 'Full', 'call-me-mule' )
 		];
 
 		return $size_names;
@@ -523,7 +528,7 @@ final class Functions {
 
 		// If it's the snippets archive.
 		if ( is_post_type_archive( 'snippets' ) ) {
-			return __( 'Video Snippets', 'mule-theme' );
+			return __( 'Video Snippets', 'call-me-mule' );
 
 		// Remove any HTML, words, digits, and spaces before the title.
 		} else {
@@ -567,12 +572,9 @@ final class Functions {
 	 */
 	private function dependencies() {
 
-		require get_parent_theme_file_path( '/inc/head/mule-head.php' );
-		require get_parent_theme_file_path( '/template-parts/loader.php' );
-		require get_parent_theme_file_path( '/template-parts/header/header-parts.php' );
-		require get_parent_theme_file_path( '/template-parts/navigation/nav-parts.php' );
-		require get_parent_theme_file_path( '/template-parts/template-tags.php' );
-		require get_parent_theme_file_path( '/template-parts/credits.php' );
+		require get_theme_file_path( '/template-parts/navigation/nav-parts.php' );
+		require get_theme_file_path( '/template-parts/template-tags.php' );
+		require get_theme_file_path( '/template-parts/credits.php' );
 
 	}
 

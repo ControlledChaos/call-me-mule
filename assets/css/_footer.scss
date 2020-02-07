@@ -1,0 +1,130 @@
+/**
+ * Footer
+ */
+
+.footer {
+    clear: both;
+    margin-top: 2em;
+    background: #9eabd5;
+    background-image: url(../images/blue-sky-light.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+	color: #333;
+
+	.wrapper {
+		padding: 3rem;
+	}
+
+	a {
+		color: #333;
+		text-decoration: underline;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+}
+
+.newsletter-message {
+	font-size: 1.4em;
+	font-weight: bold;
+	font-weight: 575;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.newsletter-link {
+    margin: 2em 0;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		padding: .3em .5em;
+		font-family: $inter;
+		font-size: 4rem;
+		font-weight: 770;
+		font-style: normal;
+		background: transparent;
+		color: $blue;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	img {
+		display: block;
+		max-width: 320px;
+	}
+}
+
+.site-credits-link {
+    line-height: 1.4;
+    text-align: center
+}
+
+.site-credits {
+    background: #fff;
+    padding: 2rem 2rem 3rem;
+    max-width: 640px;
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    -webkit-transition: all .3s;
+	transition: all .3s;
+
+	h3 {
+		margin: 0;
+	}
+
+	p {
+		line-height: 1.2;
+		color: #333;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+.fancybox-slide--complete .site-credits {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0)
+}
+
+.site-credits-name {
+    font-weight: bold;
+    font-weight: 600;
+    color: $blue
+}
+
+.copyright {
+    line-height: 1.4;
+    text-align: center
+}
+
+@media screen and (max-width: 480px) {
+
+    .newsletter-message {
+        font-size: 1.2em
+	}
+
+    .copyright {
+        font-size: 1.2rem
+	}
+
+    .copyright a {
+        display: block
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+	.footer .wrapper {
+        padding: 3rem 2rem
+    }
+}

@@ -1,0 +1,127 @@
+/**
+ * Forms
+ */
+
+fieldset {
+    padding: 1em 1.5em;
+    border: solid 1px #ccc;
+    border-radius: .3em;
+}
+
+legend {
+    padding: 0 .5em;
+    color: $blue;
+    font-size: 2em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+input,
+textarea,
+select,
+button {
+    width: 100%;
+    max-width: 640px;
+    margin-top: 1em;
+    padding: .5em 1em;
+    font: inherit;
+    background: #fff;
+}
+
+label {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+label + input:not([type="checkbox"]):not([type="radio"]),
+label ~ input:not([type="checkbox"]):not([type="radio"]),
+label + textarea,
+label ~ textarea,
+label + select,
+label ~ select {
+    margin-top: 0.5em;
+    display: block;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="image"] {
+    width: auto;
+    border-radius: .15em;
+    cursor: pointer;
+    color: $blue;
+    font-size: 1.5em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    -webkit-transition: all .15s;
+    transition: all .15s;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="image"]:hover {
+    background: $blue;
+    border-color: $blue;
+    color: #fff;
+}
+
+input[type="number"] {
+    width: auto;
+    padding: .6em 1em
+}
+
+input[type="range"] {
+    padding: 1.3em 1em;
+    cursor: pointer;
+}
+
+button:disabled,
+button[disabled],
+input:disabled,
+input[disabled] {
+    opacity: .5;
+    cursor: not-allowed !important;
+}
+
+textarea {
+    min-height: 200px;
+    margin-top: 1em;
+    padding: 1em;
+    font: inherit;
+    font-size: 85%;
+}
+
+select {
+    margin-top: 1em;
+    padding: .5em 1em;
+    font: inherit;
+}
+
+.wpcf7-recaptcha {
+    margin-top: 2em;
+}
+
+.error404 .search-form,
+.error404 .search-form input.s,
+.error404 .search-form input.search-submit {
+    margin-top: 1em;
+}
+
+.error404 .search-form input.s {
+    width: 100%;
+    max-width: 100%;
+    padding: .5em 1em;
+    font: inherit;
+    font-size: 1.6em;
+}
